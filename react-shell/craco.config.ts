@@ -11,6 +11,7 @@ const cracoConfig: CracoConfig = {
         ...(webpackConfig.plugins || []),
         new ModuleFederationPlugin({
           remotes: {
+            angularMfe: "angularMfe@http://localhost:4201/remoteEntry.js",
             reactMfe: "reactMfe@http://localhost:5301/remoteEntry.js"
           }
         })

@@ -1,12 +1,14 @@
-import { FC, Suspense } from 'react';
+import { FC } from 'react';
 import './App.scss';
-import ReactMfeComponentWrapper from "./wrappers/ReactMfeComponentWrapper";
+import ReactMFEComponentWrapper from "./wrappers/ReactMFEComponentWrapper";
+import AngularMFEComponentWrapper from "./wrappers/AngularMFEModuleWrapper";
 
 const App: FC = (): JSX.Element => {
   return <>
     <div>
       <h1>Hello World</h1>
-      <ReactMfeComponentWrapper />
+      <ReactMFEComponentWrapper />
+      <AngularMFEComponentWrapper />
     </div>
   </>;
 }

@@ -15,7 +15,7 @@ const cracoConfig: CracoConfig = {
           name: "reactMfe",
           filename: "remoteEntry.js",
           exposes: {
-            "./ReactMfeComponent": "./src/components/react-mfe-component"
+            "./ReactMFEComponent": "./src/components/react-mfe-component"
           },
           shared: {
             ...dependencies,

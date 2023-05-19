@@ -1,14 +1,14 @@
 import { FC, useEffect } from "react";
-import ReactMfeComponent from "reactMfe/ReactMfeComponent";
+import ReactMFEComponent from "reactMfe/ReactMFEComponent";
 
-const ReactMfeComponentWrapper: FC = (): JSX.Element => {
+const ReactMFEComponentWrapper: FC = (): JSX.Element => {
   useEffect(() => {
-    import("reactMfe/ReactMfeComponent");
+    import("reactMfe/ReactMFEComponent");
   }, []);
 
   return <>
-    <ReactMfeComponent></ReactMfeComponent>
+    <ReactMFEComponent></ReactMFEComponent>
   </>
 }
 
-export default ReactMfeComponentWrapper;
+export default ReactMFEComponentWrapper;
