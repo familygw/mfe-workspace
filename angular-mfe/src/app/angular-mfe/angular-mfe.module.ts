@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
+import "zone.js";
+import { ApplicationRef, DoBootstrap, NgModule } from "@angular/core";
 
 import { CommonModule } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { AngularMFEComponent } from "./angular-mfe.component";
 
 @NgModule({
@@ -8,19 +11,17 @@ import { AngularMFEComponent } from "./angular-mfe.component";
     AngularMFEComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserModule
   ]
 })
-export class AngularMFEModule { }
+export class AngularMFEModule implements DoBootstrap {
+  ngDoBootstrap(appRef: ApplicationRef): void {
+    appRef.bootstrap(AngularMFEComponent);
+  }
+};
 
-// export class AngularMFEModule {
-//   ngDoBootstrap(appRef: ApplicationRef): void {
-//     appRef.bootstrap(AngularMFEComponent);
-//   }
-// }
-
-// const doBootstrap = (): void => {
-//   platformBrowserDynamic().bootstrapModule(AngularMFEModule)
-//     .catch(err => console.error(err));
-// }
-// export default doBootstrap;
+export const doBootstrap = (): void => {
+  platformBrowserDynamic().bootstrapModule(AngularMFEModule)
+    .catch(err => console.error(err));
+};

@@ -1,4 +1,6 @@
-declare module "angularMfe/AngularMFEModule" { }
+declare module "angularMfe/AngularMFEModule" {
+  export const doBootstrap: () => void;
+}
 
 declare module "reactMfe/ReactMFEComponent" {
   const ReactMFEComponent: React.ComponentType;

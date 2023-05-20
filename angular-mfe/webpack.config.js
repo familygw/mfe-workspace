@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "taxGTPWui",
+    uniqueName: "angularMfe",
     publicPath: "auto",
     scriptType: "text/javascript",
   },
@@ -24,20 +24,16 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "taxGTPWui",
+      name: "angularMfe",
       filename: "remoteEntry.js",
       exposes: {
-        "./MFEMyTasksModule": "./src/app/mfe-modules/mfe-my-tasks.module.ts",
-        "./MFEMyTasksComponent": "./src/app/mfe-modules/mfe-my-tasks/mfe-my-tasks-sa.component.ts",
-        "./MFEDeliverableDetailsModule": "./src/app/mfe-modules/mfe-deliverable-details.module.ts",
-        "./MFEDeliverableDiagramModule": "./src/app/mfe-modules/mfe-deliverable-diagram.module.ts",
-        "./MFEDeliverableDetailsComponent": "./src/app/mfe-modules/mfe-deliverable-details/mfe-deliverable-details-sa.component.ts"
+        "./AngularMFEModule": "./src/app/angular-mfe/angular-mfe.module.ts",
+        "./AngularMFEComponent": "./src/app/angular-mfe/angular-mfe.s.component.ts"
       },
       shared: share({
         ...shareAll({ singleton: true, strictVersion: false, requiredVersion: "auto" }),
-        ...sharedMappings.getDescriptors()
+        ...sharedMappings.getDescriptors(),
       })
-
     }),
     sharedMappings.getPlugin()
   ],

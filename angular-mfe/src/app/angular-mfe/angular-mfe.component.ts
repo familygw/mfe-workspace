@@ -5,11 +5,5 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./angular-mfe.component.html",
   styleUrls: ["./angular-mfe.component.scss"]
 })
-export class AngularMFEComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class AngularMFEComponent {
 }

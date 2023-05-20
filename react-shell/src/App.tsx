@@ -6,7 +6,7 @@ import AngularMFEComponentWrapper from "./wrappers/AngularMFEModuleWrapper";
 const App: FC = (): JSX.Element => {
   return <>
     <div>
-      <h1>Hello World</h1>
+      <h1>Hello World :: From React</h1>
       <ReactMFEComponentWrapper />
       <AngularMFEComponentWrapper />
     </div>

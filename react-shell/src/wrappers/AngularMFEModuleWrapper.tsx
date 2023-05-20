@@ -2,7 +2,10 @@ import { FC, useEffect } from "react";
 
 const AngularMFEComponentWrapper: FC = (): JSX.Element => {
   useEffect(() => {
-    import("angularMfe/AngularMFEModule");
+    (async () => {
+      const { doBootstrap } = await import("angularMfe/AngularMFEModule");
+      doBootstrap();
+    })();
   }, []);
 
   return <>
