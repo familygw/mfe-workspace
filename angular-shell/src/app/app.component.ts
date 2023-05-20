@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, Injector, OnInit, QueryList, ViewChild, ViewChildren, ViewContainerRef } from "@angular/core";
 
 @Component({
   selector: "app-root",
@@ -6,12 +6,21 @@ import { AfterViewInit, Component, OnInit } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements AfterViewInit {
+  @ViewChild("angularPlaceholder", { read: ViewContainerRef }) angularPlaceholder: ViewContainerRef;
+  @ViewChildren("reactPlaceholder", { read: ElementRef }) reactPlaceholder: QueryList<ElementRef>;
+
+  constructor(
+    private injector: Injector
+  ) { }
+
   async ngAfterViewInit(): Promise<void> {
-    // const { doBootstrap } = await import("angularMfe/AngularMFEComponent");
-    setTimeout(async () => {
-      // await import("reactMfe/ReactMFEComponent");
-      await import("angularMfe/AngularMFEComponent");
-    }, 1500);
-    //console.log(">>>>>>>>>>>", m);
+    const { AngularMFEComponentStandalone } = await import("angularMfe/AngularMFEComponent");
+    this.angularPlaceholder.createComponent(AngularMFEComponentStandalone);
+
+    await import("reactMfe/ReactMFEComponent");
+    this.reactPlaceholder.forEach(ph => {
+      const el = document.createElement("react-mfe-component");
+      ph.nativeElement.appendChild(el)
+    });
   }
 }

@@ -11,7 +11,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular-architects/module-federation": "^16.0.3",
     "@angular/animations": "^16.0.2",
     "@angular/common": "^16.0.2",
     "@angular/compiler": "^16.0.2",
@@ -25,8 +24,9 @@
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
+    "@angular-architects/module-federation": "^16.0.3",
     "@angular-devkit/build-angular": "^16.0.2",
-    "@angular/cli": "~16.0.2",
+    "@angular/cli": "^16.0.2",
     "@angular/compiler-cli": "^16.0.2",
     "@types/jasmine": "~4.3.1",
     "jasmine-core": "^4.6.0",
@@ -36,7 +36,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "ngx-build-plus": "^16.0.0",
-    "typescript": "~5.0.4",
-    "webpack": "^5.83.1"
+    "sass": "^1.62.1",
+    "typescript": "~5.0.4"
   }
 }
