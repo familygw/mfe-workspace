@@ -15,7 +15,9 @@ Each shell application is set up to consume and display its respective MFE (Micr
 
 To get started with this project, clone the repository to your local machine.
 
-git clone https://github.com/yourusername/yourrepository.git
+```bash
+git clone https://github.com/familygw/mfe-workspace.git
+```
 
 Navigate to each project directory and install the necessary dependencies.
 
