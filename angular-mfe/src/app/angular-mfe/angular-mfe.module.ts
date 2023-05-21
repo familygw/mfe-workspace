@@ -1,27 +1,37 @@
-import "zone.js";
 import { ApplicationRef, DoBootstrap, NgModule } from "@angular/core";
 
-import { CommonModule } from "@angular/common";
-import { BrowserModule } from "@angular/platform-browser";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
-import { AngularMFEComponent } from "./angular-mfe.component";
+import { debounce } from "lodash";
+import { CommonMFEModule } from "./common.module";
+import { AngularMFEComponent } from "./component-1/angular-mfe.component";
+import { UserDetailsMFEComponent } from "./user-details/user-details.component";
+
+let __angular_mfe_module_bootstraped: boolean = false;
 
 @NgModule({
   declarations: [
-    AngularMFEComponent
+    AngularMFEComponent,
+    UserDetailsMFEComponent
   ],
   imports: [
-    CommonModule,
-    BrowserModule
+    CommonMFEModule
   ]
 })
 export class AngularMFEModule implements DoBootstrap {
   ngDoBootstrap(appRef: ApplicationRef): void {
     appRef.bootstrap(AngularMFEComponent);
+    appRef.bootstrap(UserDetailsMFEComponent)
   }
 };
 
-export const doBootstrap = (): void => {
-  platformBrowserDynamic().bootstrapModule(AngularMFEModule)
+/**
+ * debounce doBoostrap method to avoid multiple initialization at the same time
+ */
+export const doBootstrap = debounce((): void => {
+  // if (__angular_mfe_module_bootstraped) return;
+
+  platformBrowserDynamic()
+    .bootstrapModule(AngularMFEModule)
+    .then(() => (__angular_mfe_module_bootstraped = true))
     .catch(err => console.error(err));
-};
+}, 10);

@@ -9,6 +9,7 @@ declare module "reactMfe/ReactMFEComponent" {
 
 declare namespace JSX {
   interface IntrinsicElements {
-    "angular-mfe": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
+    "angular-mfe": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>,
+    "app-user-details": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
   }
 }

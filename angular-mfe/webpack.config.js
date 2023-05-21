@@ -28,7 +28,8 @@ module.exports = {
       filename: "remoteEntry.js",
       exposes: {
         "./AngularMFEModule": "./src/app/angular-mfe/angular-mfe.module.ts",
-        "./AngularMFEComponent": "./src/app/angular-mfe/angular-mfe.s.component.ts"
+        "./AngularMFEComponentStandalone": "./src/app/angular-mfe/angular-mfe.s.component.ts",
+        "./UserDetailsMFEComponentStandalone": "./src/app/angular-mfe/user-details.s.component.ts"
       },
       shared: share({
         ...shareAll({ singleton: true, strictVersion: false, requiredVersion: "auto" }),

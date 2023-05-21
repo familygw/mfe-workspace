@@ -1,16 +1,18 @@
+import { doBootstrap } from "angularMfe/AngularMFEModule";
 import { FC, useEffect } from "react";
 
-const AngularMFEComponentWrapper: FC = (): JSX.Element => {
-  useEffect(() => {
-    (async () => {
-      const { doBootstrap } = await import("angularMfe/AngularMFEModule");
-      doBootstrap();
-    })();
-  }, []);
+export const AngularMFEComponentWrapper: FC = (): JSX.Element => {
+  useEffect(() => doBootstrap(), []);
 
   return <>
     <angular-mfe></angular-mfe>
   </>
 }
 
-export default AngularMFEComponentWrapper;
+export const UserDetailsMFEComponentWrapper: FC = (): JSX.Element => {
+  useEffect(() => doBootstrap(), []);
+
+  return <>
+    <app-user-details></app-user-details>
+  </>
+}

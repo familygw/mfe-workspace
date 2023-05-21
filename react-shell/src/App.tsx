@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import './App.scss';
 import ReactMFEComponentWrapper from "./wrappers/ReactMFEComponentWrapper";
-import AngularMFEComponentWrapper from "./wrappers/AngularMFEModuleWrapper";
+import { AngularMFEComponentWrapper, UserDetailsMFEComponentWrapper } from "./wrappers/AngularMFEModuleWrapper";
 
 const App: FC = (): JSX.Element => {
   return <>
@@ -9,6 +9,7 @@ const App: FC = (): JSX.Element => {
       <h1>Hello World :: From React</h1>
       <ReactMFEComponentWrapper />
       <AngularMFEComponentWrapper />
+      <UserDetailsMFEComponentWrapper />
     </div>
   </>;
 }

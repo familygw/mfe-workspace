@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Injector, OnInit, QueryList, ViewChild, ViewChildren, ViewContainerRef } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren, ViewContainerRef } from "@angular/core";
+import { AngularMFEModule } from "angularMfe/AngularMFEModule";
 
 @Component({
   selector: "app-root",
@@ -6,16 +7,22 @@ import { AfterViewInit, Component, ElementRef, Injector, OnInit, QueryList, View
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent implements AfterViewInit {
-  @ViewChild("angularPlaceholder", { read: ViewContainerRef }) angularPlaceholder: ViewContainerRef;
-  @ViewChildren("reactPlaceholder", { read: ElementRef }) reactPlaceholder: QueryList<ElementRef>;
+  @ViewChild("angularPlaceholder", { read: ViewContainerRef }) angularPlaceholder: ViewContainerRef;
+  @ViewChild("userDetailsPlaceholder", { read: ViewContainerRef }) userDetailsPlaceholder: ViewContainerRef;
+  @ViewChildren("reactPlaceholder", { read: ElementRef }) reactPlaceholder: QueryList<ElementRef>;
 
   constructor(
-    private injector: Injector
   ) { }
 
   async ngAfterViewInit(): Promise<void> {
-    const { AngularMFEComponentStandalone } = await import("angularMfe/AngularMFEComponent");
-    this.angularPlaceholder.createComponent(AngularMFEComponentStandalone);
+    for (const cmp of AngularMFEModule.ɵmod.declarations) {
+
+      if (cmp.prototype.constructor.name === "AngularMFEComponent")
+        this.angularPlaceholder.createComponent(cmp);
+
+      if (cmp.prototype.constructor.name === "UserDetailsMFEComponent")
+        this.userDetailsPlaceholder.createComponent(cmp);
+    }
 
     await import("reactMfe/ReactMFEComponent");
     this.reactPlaceholder.forEach(ph => {

@@ -1,20 +1,15 @@
-import { CommonModule } from "@angular/common";
-import { Component, OnInit } from "@angular/core";
-import { BrowserModule, bootstrapApplication } from "@angular/platform-browser";
+import { Component } from "@angular/core";
+import { CommonMFEModule } from "./common.module";
+import { AngularMFEComponent } from "./component-1/angular-mfe.component";
 
 @Component({
   selector: "angular-mfe",
-  templateUrl: "./angular-mfe.component.html",
-  styleUrls: ["./angular-mfe.component.scss"],
+  templateUrl: "./component-1/angular-mfe.component.html",
+  styleUrls: ["./component-1/angular-mfe.component.scss"],
   standalone: true,
   imports: [
-    CommonModule,
-    BrowserModule
+    CommonMFEModule
   ]
 })
-export class AngularMFEComponentStandalone {
+export class AngularMFEComponentStandalone extends AngularMFEComponent {
 }
-
-export const doBootstrap = (): void => {
-  bootstrapApplication(AngularMFEComponentStandalone);
-};

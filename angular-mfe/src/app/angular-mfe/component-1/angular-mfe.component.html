@@ -1,0 +1,5 @@
+<p>
+  angular-mfe-module works!
+  <button *ngIf="!this.user" (click)="this.doLogin()">Click to Login!</button>
+  <button *ngIf="!!this.user" (click)="this.doLogout()">Click to Logout!</button>
+</p>
