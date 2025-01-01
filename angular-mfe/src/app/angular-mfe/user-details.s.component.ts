@@ -6,7 +6,6 @@ import { UserDetailsMFEComponent } from "./user-details/user-details.component";
   selector: "app-user-details",
   templateUrl: "./user-details/user-details.component.html",
   styleUrls: ["./user-details/user-details.component.scss"],
-  standalone: true,
   imports: [
     CommonMFEModule
   ]

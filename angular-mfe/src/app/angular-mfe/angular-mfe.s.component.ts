@@ -1,12 +1,11 @@
 import { Component } from "@angular/core";
 import { CommonMFEModule } from "./common.module";
-import { AngularMFEComponent } from "./component-1/angular-mfe.component";
+import { AngularMFEComponent } from "./angular-mfe/angular-mfe.component";
 
 @Component({
-  selector: "angular-mfe",
-  templateUrl: "./component-1/angular-mfe.component.html",
-  styleUrls: ["./component-1/angular-mfe.component.scss"],
-  standalone: true,
+  selector: "angular-mfe-standalone",
+  templateUrl: "./angular-mfe/angular-mfe.component.html",
+  styleUrls: ["./angular-mfe/angular-mfe.component.scss"],
   imports: [
     CommonMFEModule
   ]

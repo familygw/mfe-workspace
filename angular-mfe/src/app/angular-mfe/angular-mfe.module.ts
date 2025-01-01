@@ -3,7 +3,7 @@ import { ApplicationRef, DoBootstrap, NgModule } from "@angular/core";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 import { debounce } from "lodash";
 import { CommonMFEModule } from "./common.module";
-import { AngularMFEComponent } from "./component-1/angular-mfe.component";
+import { AngularMFEComponent } from "./angular-mfe/angular-mfe.component";
 import { UserDetailsMFEComponent } from "./user-details/user-details.component";
 
 let __angular_mfe_module_bootstraped: boolean = false;

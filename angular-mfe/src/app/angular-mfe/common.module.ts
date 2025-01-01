@@ -5,8 +5,7 @@ import "zone.js";
 
 @NgModule({
   imports: [
-    CommonModule,
-    BrowserModule
+    CommonModule
   ],
   exports: [
     NgIf

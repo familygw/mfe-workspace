@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthService } from "src/app/services/auth.service";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
+  standalone: false,
   selector: "angular-mfe",
   templateUrl: "./angular-mfe.component.html",
   styleUrls: ["./angular-mfe.component.scss"]
