@@ -37,8 +37,11 @@ async function bootstrap() {
   try {
     setStatus("Loading remote...");
     const { mount } = await loadRemoteMount();
-    // Mount the Angular component into the classic DOM host.
-    await mount("#mfe-root");
+    // Mount both Angular components into their respective DOM hosts.
+    await mount({
+      angular: "#mfe-root",
+      userDetails: "#user-details-root"
+    });
     setStatus("Remote loaded.");
   } catch (error) {
     console.error(error);

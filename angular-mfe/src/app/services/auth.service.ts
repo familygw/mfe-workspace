@@ -1,17 +1,19 @@
-import { Injectable } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
-  private _user: string;
+  private _user = signal<string>("");
 
-  get user(): string { return this._user; }
+  user(): string {
+    return this._user();
+  }
 
   constructor() { }
 
   doLogin(user: string) {
-    this._user = user;
+    this._user.set(user);
   }
 
 }

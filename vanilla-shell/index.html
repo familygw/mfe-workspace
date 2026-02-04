@@ -16,10 +16,21 @@
       <section class="card">
         <h1>Angular MFE</h1>
         <p id="status" class="status">Loading remote...</p>
-        <div id="mfe-root" class="mfe-root"></div>
+        <div class="mfe-grid">
+          <div>
+            <h2>Auth Controls</h2>
+            <div id="mfe-root" class="mfe-root"></div>
+          </div>
+          <div>
+            <h2>User Details</h2>
+            <div id="user-details-root" class="mfe-root"></div>
+          </div>
+        </div>
       </section>
     </main>
 
+    <!-- zone.js is required for Angular change detection in a classic host -->
+    <script src="https://cdn.jsdelivr.net/npm/zone.js@0.15.1/bundles/zone.umd.min.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>

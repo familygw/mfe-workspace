@@ -8,7 +8,7 @@ import { AuthService } from "../../services/auth.service";
   styleUrls: ["./user-details.component.scss"]
 })
 export class UserDetailsMFEComponent {
-  get user(): string { return this.authService.user; }
+  get user(): string { return this.authService.user(); }
 
   constructor(
     private authService: AuthService

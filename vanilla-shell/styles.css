@@ -68,6 +68,18 @@ body {
   background: #f8fafc;
 }
 
+.mfe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.mfe-grid h2 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #0f172a;
+}
+
 .error {
   color: #dc2626;
 }
