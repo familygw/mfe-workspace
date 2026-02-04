@@ -1,4 +1,4 @@
-import { loadRemoteModule } from "@angular-architects/native-federation";
+import { loadRemoteModule } from "@angular-architects/module-federation";
 import { AfterViewInit, Component, ElementRef, ViewChild, ViewContainerRef } from "@angular/core";
 
 @Component({
@@ -15,15 +15,23 @@ export class AppComponent implements AfterViewInit {
   ) { }
 
   async ngAfterViewInit(): Promise<void> {
-    const { AngularMFEComponentStandalone } = await loadRemoteModule("angularMfe", "./AngularMFEComponentStandalone");
-    const { UserDetailsMFEComponentStandalone } = await loadRemoteModule("angularMfe", "./UserDetailsMFEComponentStandalone");
+    const { AngularMFEComponentStandalone } = await loadRemoteModule({
+      type: "module",
+      remoteEntry: "http://localhost:4201/remoteEntry.js",
+      exposedModule: "./AngularMFEComponentStandalone"
+    });
+    const { UserDetailsMFEComponentStandalone } = await loadRemoteModule({
+      type: "module",
+      remoteEntry: "http://localhost:4201/remoteEntry.js",
+      exposedModule: "./UserDetailsMFEComponentStandalone"
+    });
 
     this.angularPlaceholder.createComponent(AngularMFEComponentStandalone);
     this.userDetailsPlaceholder.createComponent(UserDetailsMFEComponentStandalone);
 
     // const { ReactMFEComponent } = await loadRemoteModule({
+    //   type: "module",
     //   remoteEntry: "http://localhost:5301/remoteEntry.js",
-    //   remoteName: "reactMfe",
     //   exposedModule: "./ReactMFEComponent"
     // });
     // console.log("ReactMFEComponent", ReactMFEComponent);
