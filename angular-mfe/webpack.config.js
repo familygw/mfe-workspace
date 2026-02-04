@@ -6,7 +6,8 @@ module.exports = withModuleFederationPlugin({
   exposes: {
     "./AngularMFEModule": "./src/app/angular-mfe/angular-mfe.module.ts",
     "./AngularMFEComponentStandalone": "./src/app/angular-mfe/angular-mfe.s.component.ts",
-    "./UserDetailsMFEComponentStandalone": "./src/app/angular-mfe/user-details.s.component.ts"
+    "./UserDetailsMFEComponentStandalone": "./src/app/angular-mfe/user-details.s.component.ts",
+    "./AngularMFEVanillaMount": "./src/app/angular-mfe/vanilla-mount.ts"
   },
   shared: {
     ...shareAll({ singleton: true, strictVersion: true, requiredVersion: "auto" })
